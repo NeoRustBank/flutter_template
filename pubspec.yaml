@@ -1,0 +1,80 @@
+name: neust_app
+description: "Neust Bank mobile app"
+
+# Prevent accidental publishing to pub.dev.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_gen:
+  intl: any
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+
+  build_runner: ^2.0.0
+  flutter_gen_runner: ^5.8.0
+
+flutter_gen:
+  output: lib/gen/ # Optional (default: lib/gen/)
+  line_length: 80 # Optional (default: 80)
+
+  integrations:
+    flutter_svg: true
+    flare_flutter: true
+    rive: true
+    lottie: true
+
+  assets:
+    enabled: true
+
+    outputs:
+      class_name: MyAssets
+      package_parameter_enabled: false
+      # Assets.imagesChip
+      # style: camel-case
+
+      # Assets.images_chip
+      # style: snake-case
+
+      # Assets.images.chip (default style)
+      style: dot-delimiter
+
+    exclude:
+      - assets-extern/*
+      - pictures/chip5.jpg
+
+  fonts:
+    enabled: true
+    outputs:
+      class_name: MyFontFamily
+
+  colors:
+    enabled: true
+    outputs:
+      class_name: MyColorName
+    inputs:
+      - assets/color/colors.xml
+      - assets/color/colors2.xml
+      - assets/color/colors2.xml # duplicated
+
+flutter:
+  uses-material-design: true
+
+  # Enable generation of localized Strings from arb files.
+  generate: true
+
+  assets:
+    # Add assets from the images directory to the application.
+    - assets/images/
